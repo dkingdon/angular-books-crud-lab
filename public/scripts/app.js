@@ -1,23 +1,21 @@
 console.log('app.js connected');
 
 angular
-  .module('books', [])
-  .controller('BookIndexController', BookIndexController);
+  .module('books', ['ngRoute'])
+  .config(config);
 
-  BookIndexController.$inject = ['$http'];
-  function BookIndexController ($http) {
-    var vm = this;
+  config.$inject = ['$routeProvider', '$locationProvider'];
+  function config ($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: '/templates/booksIndex.html',
+        controllerAs: 'bookIndexCtrl',
+        controller: 'BookIndexController'
+      })
 
-    $http({
-      method: 'GET',
-      url: 'https://super-crud.herokuapp.com/books'
-    }).then(function getSuccessCallback(res) {
-      console.log('this is the GET response', res)
-      vm.books = res.data.books;
-      console.log(vm.books)
-    }, function error(err) {
-      console.log('error getting books', err);
-    })
-
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
 
   } //END OF CONTROLLER
