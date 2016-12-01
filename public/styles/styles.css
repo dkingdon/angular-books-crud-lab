@@ -1,0 +1,10 @@
+.jumbotron {
+  background-image: url(/public/images/bookshelf.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #EEE;
+}
+
+.jumbotron .contrainer {
+  height: 350px;
+}
