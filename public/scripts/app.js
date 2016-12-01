@@ -6,14 +6,14 @@ angular
 
   BookIndexController.$inject = ['$http'];
   function BookIndexController ($http) {
-    var vm = this,
+    var vm = this;
 
     $http({
       method: 'GET',
-      url: 'https://super-crud.herokuapp.com/api/books'
+      url: 'https://super-crud.herokuapp.com/books'
     }).then(function getSuccessCallback(res) {
       console.log('this is the GET response', res)
-      vm.books = res.data;
+      vm.books = res.data.books;
       console.log(vm.books)
     }, function error(err) {
       console.log('error getting books', err);
