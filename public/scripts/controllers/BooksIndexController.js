@@ -18,29 +18,29 @@ angular
       console.log('error getting books', err);
     });
 
-    // vm.createBook = function () {
-    //   $http({
-    //     method: 'POST',
-    //     url: 'https://super-crud.herokuapp.com/books',
-    //     data: vm.newBook,
-    //   }).then(function createSuccess(res) {
-    //     console.log(res.data);
-    //     vm.books.push(res.data);
-    //   }, function createError (err) {
-    //     console.log('error creating book', err);
-    //   });
-    // }
+    vm.createBook = function () {
+      $http({
+        method: 'POST',
+        url: 'https://super-crud.herokuapp.com/books',
+        data: vm.newBook,
+      }).then(function createSuccess(res) {
+        console.log(vm.books);
+        vm.books.push(res.data);
+      }, function createError (err) {
+        console.log('error creating book', err);
+      });
+    }
 
-    // vm.editBook = function (book) {
-    //   $http({
-    //     method: 'PUT',
-    //     url: 'https://super-crud.herokuapp.com/books/' + book._id,
-    //     data: book,
-    //   }).then(function editSuccess(res) {
-    //   }, function editError(err) {
-    //     console.log('error editing book');
-    //   });
-    // }
+    vm.editBook = function (book) {
+      $http({
+        method: 'PUT',
+        url: 'https://super-crud.herokuapp.com/books/' + book._id,
+        data: book,
+      }).then(function editSuccess(res) {
+      }, function editError(err) {
+        console.log('error editing book');
+      });
+    }
 
     vm.deleteBook = function (book) {
       $http({

@@ -11,6 +11,11 @@ angular
         templateUrl: '/templates/booksIndex.html',
         controllerAs: 'bookIndexCtrl',
         controller: 'BookIndexController'
+      }),
+      .when('/books/:id', {
+        templateUrl: '/templates/book-show.html',
+        controllerAs: 'bookShowCtrl',
+        controller: 'BookShowController'
       })
 
     $locationProvider.html5Mode({
