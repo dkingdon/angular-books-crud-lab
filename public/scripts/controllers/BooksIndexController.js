@@ -30,7 +30,7 @@ angular
         console.log('error creating book', err);
       });
     }
-
+    // moving to book-show controller/page
     vm.editBook = function (book) {
       $http({
         method: 'PUT',
@@ -42,17 +42,17 @@ angular
       });
     }
 
-    vm.deleteBook = function (book) {
-      $http({
-        method: "DELETE",
-        url: 'https://super-crud.herokuapp.com/books/' + book._id
-      }).then(function deleteSuccess(res) {
-        var index = vm.books.indexOf(book);
-        vm.books.splice(index, 1)
-      }, function errorDelete(err) {
-        console.log('error deleting book', err);
-      });
-    }
-
+    //
+    // vm.deleteBook = function (book) {
+    //   $http({
+    //     method: "DELETE",
+    //     url: 'https://super-crud.herokuapp.com/books/' + book._id
+    //   }).then(function deleteSuccess(res) {
+    //     var index = vm.books.indexOf(book);
+    //     vm.books.splice(index, 1)
+    //   }, function errorDelete(err) {
+    //     console.log('error deleting book', err);
+    //   });
+    // }
 
   } //END OF CONTROLLER
